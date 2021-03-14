@@ -1,0 +1,12 @@
+#fffeec --> amarillo
+#aeddcd --> verde
+#e4508f --> rosa
+#556fb5 --> azul 
+
+1. Realizar login formulario. check
+2. Redireccionar si el usuario ya esta logueado. 
+3. Conectar con la api y realizar la logica de la trivia. 
+4. Mensaje de felicitaciones con cantidad de preguntas correctas.
+5. Tiempo que tomo realizar.
+6. Tabla con los tiempos de todos los jugadores.
+7. Mejorar diseño(si tengo ganas.).

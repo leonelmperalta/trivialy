@@ -1,0 +1,231 @@
+#root {
+  display: grid;
+  grid-template-columns: 10% 15% 50% 15% 10%;
+  grid-template-rows: 80px repeat(7, 1fr) 30px;
+  background-color: #fffeec;
+  height: 100%;
+}
+
+body {
+  height: 100vh;
+}
+
+.header {
+  grid-column: 1 / 6;
+  grid-row: 1 / 2;
+  background-color: #aeddcd;
+  display: flex;
+}
+
+.logo-trivialy {
+  margin: 10px 0 0 10px;
+  width: 200px;
+  height: auto;
+}
+
+.login {
+  grid-column: 2 / 5;
+  grid-row: 3 / 7;
+  background-color: #aeddcd;
+  padding: 12px 0 12px 12px;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  justify-content: center;
+}
+
+.login__label {
+  font-family: share, cursive;
+  font-size: 18px;
+  align-self: center;
+}
+
+.login__input {
+  width: 90%;
+  max-width: 300px;
+  height: 25px;
+  margin-top: 10px;
+}
+
+.login__h3 {
+  font-family: share, cursive;
+  align-self: start;
+  font-weight: 500;
+  text-align: center;
+}
+
+.login__button {
+  align-self: center;
+  margin-right: 12px;
+  justify-self: flex-end;
+  margin-top: 20px;
+  background-color: #fffeec;
+  font-family: share, cursive;
+  border-color: #ffffff;
+  border-radius: 0;
+  height: 35px;
+  width: 25%;
+  min-width: 60px;
+}
+
+.categories__container {
+  grid-column: 2 / 5;
+  grid-row: 3 / 7;
+  background-color: #aeddcd;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.categories__form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 12px;
+  align-content: center;
+  width: 70%;
+}
+
+.categories__input,
+.categories__label {
+  margin: 12px 12px 0 12px;
+  font-family: share, cursive;
+  font-size: large;
+}
+
+.categories__input {
+  height: 25px;
+  width: 90%;
+}
+
+.categories__button {
+  background-color: #fffeec;
+  font-family: share, cursive;
+  border-color: #ffffff;
+  border-radius: 0;
+  height: 25px;
+  width: 25%;
+  min-width: 60px;
+  align-self: center;
+  margin: 20px 0 0 0;
+}
+
+.trivia__container {
+  background-color: #aeddcd;
+  grid-column: 2/5;
+  grid-row: 3/9;
+}
+
+.answers__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.answers__option {
+  width: 80%;
+  font-family: share, cursive;
+  align-self: center;
+  margin: 5px;
+}
+
+.question__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow-y: auto;
+}
+
+.question__paragraph {
+  font-family: share, cursive;
+  width: 90%;
+  align-self: center;
+}
+
+.question__loading{
+  font-family: share,cursive;
+  margin:auto;
+  grid-row: 5/6;
+  grid-column: 3/4;
+}
+
+.trivia__result-title{
+  font-family: share,cursive;
+  color: #444;
+  text-align: center;
+  margin: 30px 10px 90px 10px; 
+  
+}
+
+.trivia__result-subtitle{
+  font-family: share,cursive;
+  color: #444;
+  padding-left: 10px;
+}
+
+.trivia__result-points{
+  font-family: share,cursive;
+  color: #2B8;
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  .login {
+    grid-column: 3/4;
+    grid-row: 3 / 7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .login__h3 {
+    align-self: center;
+    font-size: 28px;
+  }
+
+  .login__label {
+    font-size: 20px;
+  }
+
+  .categories__container{
+      grid-column: 3/4;
+  }
+
+  .categories__label{
+      font-size: 19px;
+  }
+
+  .question__paragraph{
+      font-size: 22px;
+      margin:  0 12px 0 12px;
+      text-align: center;
+  }
+
+  .answers__form {
+    height: 70%;
+    grid-row: 2/3;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+
+  .answers__option {
+    width: 40%;
+    height: 35px;
+    font-family: share, cursive;
+    align-self: center;
+    margin: 5px;
+  }
+
+  .trivia__container{
+    grid-column: 3/4;
+    grid-row: 3 / 8;
+  }
+
+
+}
