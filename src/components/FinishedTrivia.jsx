@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
+import convertToMMSS from "./milisecondsToMMSS";
 
 const mapStateToProps = (state) => {
   return {
@@ -34,7 +35,7 @@ const FinishedTrivia = (props) => {
       <h3 className="trivia__result-subtitle">You scored:</h3>
       <h1 className="trivia__result-points">{correct_answers()} Points!</h1>
       <h3 className= "trivia__result-subtitle">Your time: </h3>
-      <h1 className="trivia__result-points">{spendedTime} Miliseconds</h1>
+      <h1 className="trivia__result-points">{convertToMMSS(spendedTime)}</h1>
     </div>
   );
 };
