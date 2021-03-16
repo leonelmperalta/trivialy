@@ -6,7 +6,8 @@ import {
   questionAnswered,
   finishedTrivia,
 } from "../redux/actions/actions";
-import shuffleArray from "./arrayShuffle";
+import shuffleArray from "./functions/arrayShuffle";
+import decodeHtml from "./functions/decodeHtml";
 
 const mapDispatchToProps = {
   startedTrivia,
@@ -19,6 +20,7 @@ const mapStateToProps = (state) => {
 };
 
 const Question = (props) => {
+
   const { questions, startTime, questionAnswered, startedTrivia, finishedTrivia } = props;
   const [questionIndex, setQuestionIndex] = useState(0);
   const actualQuestion = questions.results[questionIndex];
@@ -45,10 +47,12 @@ const Question = (props) => {
     }
   };
 
+
+
   return (
     <Fragment>
       <div className="question__container">
-        <p className="question__paragraph"> {actualQuestion.question} </p>
+        <p className="question__paragraph"> {decodeHtml(actualQuestion.question)} </p>
         <div className="answers__container">
           <form className="answers__form">
             <input
