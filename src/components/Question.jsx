@@ -59,25 +59,25 @@ const Question = (props) => {
               type="button"
               className="answers__option"
               onClick={handleClick}
-              value={answers[0]}
+              value={decodeHtml(answers[0])}
             />
             <input
               type="button"
               className="answers__option"
               onClick={handleClick}
-              value={answers[1]}
+              value={decodeHtml(answers[1])}
             />
             <input
               type="button"
               className="answers__option"
               onClick={handleClick}
-              value={answers[2]}
+              value={decodeHtml(answers[2])}
             />
             <input
               type="button"
               className="answers__option"
               onClick={handleClick}
-              value={answers[3]}
+              value={decodeHtml(answers[3])}
             />
           </form>
         </div>

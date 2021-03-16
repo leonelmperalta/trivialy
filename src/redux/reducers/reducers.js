@@ -33,8 +33,8 @@ function userName(state = "", action) {
 
 function gameSettings(
   state = {
-    category: "any",
-    difficulty: "any",
+    category: "",
+    difficulty: "",
   },
   action
 ) {

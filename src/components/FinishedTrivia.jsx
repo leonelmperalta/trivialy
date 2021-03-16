@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { cleanAnswers } from "../redux/actions/actions";
@@ -26,10 +26,8 @@ const FinishedTrivia = (props) => {
     let corrects = questions.questionsResults.results.map((question) => {
       return question.correct_answer;
     });
-    console.log(corrects);
     let points = 0;
     answers.forEach((a) => {
-      console.log(a.answer)
       if (corrects.includes(a.answer)) {
         points++;
       }
