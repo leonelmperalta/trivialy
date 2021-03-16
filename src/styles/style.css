@@ -155,25 +155,35 @@ body {
   grid-column: 3/4;
 }
 
+.trivia__result-container {
+  background-color: #aeddcd;
+  grid-column: 2/5;
+  grid-row: 3/8;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+
 .trivia__result-title{
   font-family: share,cursive;
   color: #444;
-  text-align: center;
-  margin: 30px 10px 90px 10px; 
-  
+  margin: 5px 0;
 }
 
 .trivia__result-subtitle{
   font-family: share,cursive;
   color: #444;
-  padding-left: 10px;
+  margin: 5px 0;
 }
 
-.trivia__result-points{
+.trivia__result-green{
   font-family: share,cursive;
   color: #2B8;
-  text-align: center;
+
+  margin: 5px 0;
 }
+
 
 @media screen and (min-width: 600px) {
   .login {
@@ -227,5 +237,31 @@ body {
     grid-row: 3 / 8;
   }
 
+  .trivia__result-container{
+    grid-column: 3/4;
+    grid-row: 3 / 8;
+  }
+
+  .trivia__result-title{
+    font-family: share,cursive;
+    color: #444;
+    font-size: xx-large;
+    margin: 15px 0;
+  }
+  
+  .trivia__result-subtitle{
+    font-family: share,cursive;
+    color: #444;
+    font-size: x-large;
+    margin: 15px 0;
+  }
+  
+  .trivia__result-green{
+    font-family: share,cursive;
+    color: #2B8;
+  
+    font-size: xx-large;
+    margin: 15px 0;
+  }
 
 }

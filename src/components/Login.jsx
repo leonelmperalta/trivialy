@@ -1,31 +1,28 @@
 import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {setUserName} from "../redux/actions/actions";
+import { setUserName, login } from "../redux/actions/actions";
 
 const mapDispatchToProps = {
   setUserName,
-}
+  login,
+};
 const mapStateToProps = (state) => {
   return {
     userName: state.userName,
   };
-}
+};
 
 const Login = (props) => {
-  const {userName} = props;
-  const {setUserName} = props; 
-  let history= useHistory();
+  const { userName, setUserName, login } = props;
+  let history = useHistory();
   const handleClick = (e) => {
     e.preventDefault();
-    if (
-      userName === null ||
-      userName === undefined ||
-      userName.trim() === ""
-    ) {
+    if (userName === null || userName === undefined || userName.trim() === "") {
       alert("escribi tu nombre crack");
       return;
     }
+    login();
     history.push("/categories");
   };
 
@@ -42,7 +39,9 @@ const Login = (props) => {
               name="name"
               className="login__input"
               value={userName}
-              onChange={(e) => {setUserName(e.target.value)}}
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
             />
           </label>
 

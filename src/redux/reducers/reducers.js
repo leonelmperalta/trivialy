@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import ACTION_TYPES from "../actions/action_types";
 const {
+  LOGIN,
   SET_USER_NAME,
   SET_GAME_SETTINGS,
   FETCH_QUESTIONS_REQUEST,
@@ -9,7 +10,17 @@ const {
   STARTED_TRIVIA,
   QUESTION_ANSWERED,
   FINISHED_TRIVIA,
+  CLEAN_ANSWERS
 } = ACTION_TYPES;
+
+function isLogged(state = false, action){
+  switch(action.type){
+    case LOGIN:
+      return true;
+    default:
+      return state;
+  }
+}
 
 function userName(state = "", action) {
   switch (action.type) {
@@ -78,6 +89,8 @@ function answers(state = [], action) {
           answer: action.answer,
         },
       ];
+    case CLEAN_ANSWERS:
+      return [];
     default:
       return state;
   }
@@ -100,6 +113,7 @@ function gameState(state = { hasFinished: false, time: null }, action) {
 }
 
 const trivialy = combineReducers({
+  isLogged,
   userName,
   gameSettings,
   questions,

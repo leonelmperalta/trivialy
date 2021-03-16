@@ -41,6 +41,7 @@ const Question = (props) => {
       let timeSpended = new Date().getTime() - startTime;
       finishedTrivia(timeSpended);
       history.push("/finishedTrivia");
+      
     }
   };
 

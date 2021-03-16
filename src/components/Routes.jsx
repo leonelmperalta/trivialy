@@ -1,50 +1,47 @@
 import React from "react";
-import { Provider } from "react-redux";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-import { applyMiddleware, createStore } from "redux";
 import Categories from "./Categories";
 import Login from "./Login";
 import Trivia from "./Trivia";
-import { composeWithDevTools } from 'redux-devtools-extension';
-import reducers from "../redux/reducers/reducers";
-import thunk from "redux-thunk";
 import FinishedTrivia from "./FinishedTrivia";
+import { connect } from "react-redux";
 
+const mapStateToProps = (state) => {
+  return {
+    isLogged: state.isLogged,
+    hasFinished: state.gameState.hasFinished,
+  };
+};
 
-const Routes = () => {
-  
-  const store = createStore(reducers, composeWithDevTools(
-    applyMiddleware(thunk)
-  ));
-  
+const Routes = (props) => {
+  const { isLogged, hasFinished } = props;
+
   return (
-    <Provider store= {store}>
-      <Router>
-        <Switch>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/login" />
-          </Route>
-          <Route exact path="/categories">
-            <Categories />
-          </Route>
-          <Route exact path="/trivia">
-            <Trivia />
-          </Route>
-          <Route exact path="/finishedTrivia">
-            <FinishedTrivia />
-          </Route>
-        </Switch>
-      </Router>
-    </Provider>
+    <Router>
+      <Switch>
+        <Route exact path="/login">
+          {isLogged ? <Redirect to="/categories" /> : <Login />}
+        </Route>
+        <Route exact path="/">
+          {isLogged ? <Redirect to="/categories" /> : <Redirect to="/login" />}
+        </Route>
+        <Route exact path="/categories">
+          {isLogged ? <Categories /> : <Redirect to="/login" />}
+        </Route>
+        <Route exact path="/trivia">
+          {isLogged ? <Trivia /> : <Redirect to="/login" />}
+        </Route>
+        <Route exact path="/finishedTrivia">
+          {hasFinished ? <FinishedTrivia /> : <Redirect to="/login" />}
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
-export default Routes;
+export default connect(mapStateToProps)(Routes);

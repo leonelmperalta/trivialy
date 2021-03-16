@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router";
+import { cleanAnswers } from "../redux/actions/actions";
 import convertToMMSS from "./milisecondsToMMSS";
 
 const mapStateToProps = (state) => {
@@ -11,8 +13,14 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = {
+  cleanAnswers,
+}
+
 const FinishedTrivia = (props) => {
-  const { questions, answers, userName, spendedTime } = props;
+  const { questions, answers, userName, spendedTime,cleanAnswers } = props;
+
+  let history = useHistory();
 
   const correct_answers = () => {
     let corrects = questions.questionsResults.results.map((question) => {
@@ -29,15 +37,21 @@ const FinishedTrivia = (props) => {
     return points;
   };
 
+  const playAgain = () =>{
+    cleanAnswers();
+    history.push('/categories');
+  }
+
   return (
-    <div className="trivia__container">
-      <h2 className="trivia__result-title">Congratulations {userName}!</h2>
-      <h3 className="trivia__result-subtitle">You scored:</h3>
-      <h1 className="trivia__result-points">{correct_answers()} Points!</h1>
-      <h3 className= "trivia__result-subtitle">Your time: </h3>
-      <h1 className="trivia__result-points">{convertToMMSS(spendedTime)}</h1>
+    <div className="trivia__result-container">
+      <h4 className="trivia__result-title">Congratulations {userName}!</h4>
+      <h6 className="trivia__result-subtitle">You scored:</h6>
+      <h3 className="trivia__result-green">{correct_answers()} Points!</h3>
+      <h6 className= "trivia__result-subtitle">Your time: </h6>
+      <h3 className="trivia__result-green">{convertToMMSS(spendedTime)}</h3>
+      <button className="trivia__result-subtitle" onClick={playAgain}>Play again!</button>
     </div>
   );
 };
 
-export default connect(mapStateToProps)(FinishedTrivia);
+export default connect(mapStateToProps, mapDispatchToProps)(FinishedTrivia);

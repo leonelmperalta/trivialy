@@ -2,6 +2,7 @@ import axios from "axios";
 import ACTION_TYPES from "./action_types";
 
 const {
+  LOGIN,
   SET_USER_NAME,
   SET_GAME_SETTINGS,
   FETCH_QUESTIONS_REQUEST,
@@ -10,9 +11,16 @@ const {
   STARTED_TRIVIA,
   QUESTION_ANSWERED,
   FINISHED_TRIVIA,
+  CLEAN_ANSWERS
 } = ACTION_TYPES;
 
 //Actions
+
+export function login(){
+  return {
+    type: LOGIN,
+  }
+}
 
 export function setUserName(userName) {
   return {
@@ -83,4 +91,10 @@ export function finishedTrivia(time) {
     type: FINISHED_TRIVIA,
     time
   };
+}
+
+export function cleanAnswers() {
+  return {
+    type: CLEAN_ANSWERS,
+  }
 }
