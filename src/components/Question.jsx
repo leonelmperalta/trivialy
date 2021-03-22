@@ -6,8 +6,7 @@ import {
   questionAnswered,
   finishedTrivia,
 } from "../redux/actions/actions";
-import shuffleArray from "./functions/arrayShuffle";
-import decodeHtml from "./functions/decodeHtml";
+import {shuffleArray, decodeHtml} from "./utils/index";
 
 const mapDispatchToProps = {
   startedTrivia,

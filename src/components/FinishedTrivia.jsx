@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { cleanAnswers } from "../redux/actions/actions";
-import convertToMMSS from "./functions/milisecondsToMMSS";
+import {convertToMMSS} from "./utils/index";
 
 const mapStateToProps = (state) => {
   return {
